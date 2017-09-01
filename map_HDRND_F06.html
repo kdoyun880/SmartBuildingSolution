@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>map_test</title>
+ </head>
+ <body>
+ <script type="text/javascript">
+     window.onload = function () {
+         var xPosition = 1520;
+         var yPosition = 1270;
+         var zPosition = 0;
+         var point = document.getElementById("location_area");
+         var systemBtn = document.getElementById("systemButton");
+
+         systemBtn.onclick = function () {
+             //point.innerHTML += "<div style='position:absolute; z-index:3; left:" + xPosition2 + "px; top:" + yPosition2 + "px;'><font color='" + pointerColor + "' face='굴림' size='15'>●</div></font>";
+             point.style.left = xPosition + 'px';
+             point.style.top = yPosition + 'px';
+             document.body.scrollTop = yPosition - 100;
+             document.body.scrollLeft = xPosition - 190;
+             systemBtn.onclick = null;
+         }
+         var xDefaultPosition = 500;
+         var yDefaultPosition = 200;
+         point.style.left = xDefaultPosition + 'px';
+         point.style.top = yDefaultPosition + 'px';
+         document.body.scrollTop = yDefaultPosition - 100;
+         document.body.scrollLeft = xDefaultPosition - 190;
+         alert("The result 'Data download complete' was added to the system information");
+     }
+     var androidBridge = function (xPosition2, yPosition2, pointerColor) {
+         var point = document.getElementById("location_area");
+         //point.innerHTML += "<div style='position:absolute; z-index:3; left:" + xPosition2 + "px; top:" + yPosition2 + "px;'><font color='" + pointerColor + "' face='굴림' size='15'>●</div></font>";
+         point.style.left = xPosition2 + 'px';
+         point.style.top = yPosition2 + 'px';
+         document.body.scrollLeft = xPosition2 - 190;
+         document.body.scrollTop = yPosition2 - 100;
+         document.body.style.overflow = "hidden";
+         document.body.style.overflow = "scroll";
+         /*
+         var androidCallServer = function () {
+             window.Android.androidCallClient(xPosition2, yPosition2);
+         }
+         */
+     }
+ </script>
+ <!--
+     <form>
+        <input type="button" id="systemButton" value="System button (Force refresh)" style="left:0px; top:0px;">
+     </form>
+   -->
+	 <div id="map_area" style="position:absolute; z-index:1; left:0px; top:50px; overflow:scroll;">
+		<img src="./binary_files/map/06F.png">
+     </div>
+	 <div id="location_area" style="position:absolute; z-index:2; left:0px; top:50px;">
+	    <font color="#ff0000" face="굴림" size="15">●</font>
+	 </div>
+ </body>
+</html>

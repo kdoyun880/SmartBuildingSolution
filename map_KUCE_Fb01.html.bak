@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>map_test</title>
+ </head>
+ <body>
+ <script type="text/javascript">
+     window.onload = function () {
+         var xPosition = 500;
+         var yPosition = 50;
+         var zPosition = 0;
+         var point = document.getElementById("location_area");
+         var systemBtn = document.getElementById("systemButton");
+         var pointerColor = "#000000"
+         var xPosition2 = 200;
+         var yPosition2 = 200;
+
+         systemBtn.onclick = function () {
+             point.style.left = xPosition + 'px';
+             point.style.top = yPosition + 'px';
+             systemBtn.onclick = null;
+         }
+         function androidBridge (xPosition2, yPosition2, pointerColor) {
+              point.innerHTML += "<div style='position:absolute; z-index:3; left:" + xPosition2 + "px; top:" + yPosition2 + "px;'><font color='" + pointerColor + "' face='굴림' size='15'>●</div></font>";
+         }
+         alert("데이터 다운로드를 시작합니다.");
+     }
+ </script>
+     <form>
+        <input type="button" id="systemButton" value="System button (Force refresh)" style="left:0px; top:0px;">
+     </form>
+	 <div id="map_area" style="position:absolute; z-index:1; left:0px; top:50px;">
+		<img src="./binary_files/map/CORE_SERVER_KUCE_Fb01.png">
+     </div>
+	 <div id="location_area" style="position:absolute; z-index:2; left:0px; top:50px;">
+	    <font color="#ff0000" face="굴림" size="15">●</font>
+	 </div>
+ </body>
+</html>
